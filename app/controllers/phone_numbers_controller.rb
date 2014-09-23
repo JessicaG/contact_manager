@@ -14,7 +14,11 @@ class PhoneNumbersController < ApplicationController
 
   def edit
   end
-  
+
+  def valid_attributes
+    { number: "MyString", person_id: 1 }
+  end
+
   def create
     @phone_number = PhoneNumber.new(phone_number_params)
 
