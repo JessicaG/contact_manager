@@ -1,28 +1,20 @@
 class PhoneNumbersController < ApplicationController
   before_action :set_phone_number, only: [:show, :edit, :update, :destroy]
 
-  # GET /phone_numbers
-  # GET /phone_numbers.json
   def index
     @phone_numbers = PhoneNumber.all
   end
 
-  # GET /phone_numbers/1
-  # GET /phone_numbers/1.json
   def show
   end
 
-  # GET /phone_numbers/new
   def new
     @phone_number = PhoneNumber.new
   end
 
-  # GET /phone_numbers/1/edit
   def edit
   end
-
-  # POST /phone_numbers
-  # POST /phone_numbers.json
+  
   def create
     @phone_number = PhoneNumber.new(phone_number_params)
 
@@ -37,8 +29,6 @@ class PhoneNumbersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /phone_numbers/1
-  # PATCH/PUT /phone_numbers/1.json
   def update
     respond_to do |format|
       if @phone_number.update(phone_number_params)
