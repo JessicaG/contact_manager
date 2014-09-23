@@ -6,8 +6,8 @@ RSpec.describe PeopleController, :type => :controller do
   # Person. As you add validations to Person, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+    {number: '555-1234', person_id: alice.id}
+    }
 
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
@@ -51,6 +51,9 @@ RSpec.describe PeopleController, :type => :controller do
 
   describe "POST create" do
     describe "with valid params" do
+
+      let(:alice) { Person.create(first_name: 'Alice', last_name: 'Smith') }
+
       it "creates a new Person" do
         expect {
           post :create, {:person => valid_attributes}, valid_session
