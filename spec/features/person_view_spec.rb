@@ -68,7 +68,7 @@ describe 'the person view', type: :feature do
     end
 
     it 'has a list of email addresses' do
-      expect(page).to have_selector('li', text: person.email_addresses.first.email)
+      expect(page).to have_selector('li', text: person.email_addresses.first.address)
     end
 
     it 'has an add email address link' do
@@ -87,7 +87,7 @@ describe 'the person view', type: :feature do
     it 'edits email addresses' do
       pending
       email = person.email_addresses.first
-      old_email = email.email
+      old_email = email.address
 
       first(:link, 'edit').click
       page.fill_in('Email', with: 'new@email.com')
@@ -104,8 +104,8 @@ describe 'the person view', type: :feature do
 
       first(:link, 'delete').click
       expect(current_path).to eq(person_path(person))
-      expect(page).to have_content(good_email.email)
-      expect(page).to_not have_content(bad_email.email)
+      expect(page).to have_content(good_email.address)
+      expect(page).to_not have_content(bad_email.address)
     end
   end
 
