@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PhoneNumbersController, :type => :controller do
+describe PhoneNumbersController, :type => :controller do
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -10,6 +10,14 @@ RSpec.describe PhoneNumbersController, :type => :controller do
   }
 
   let(:valid_session) { {} }
+
+  it "redirects to the phone_number" do
+    bob = Person.create(first_name: 'Bob', last_name: 'Jones')
+    valid_attributes = {number: '555-5678', person_id: bob.id}
+    phone_number = PhoneNumber.create! valid_attributes
+    put :update, {:id => phone_number.to_param, :phone_number => valid_attributes}, valid_session
+    expect(response).to redirect_to(bob)
+  end
 
   describe "GET index" do
     it "assigns all phone_numbers as @phone_numbers" do
