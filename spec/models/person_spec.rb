@@ -19,4 +19,7 @@ describe Person do
   it 'has an array of phone numbers' do
     expect(person.phone_numbers).to eq([])
   end
+  it 'has an email address' do
+    expect(person.email_address).to eq([])
+  end
 end
