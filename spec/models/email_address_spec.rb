@@ -1,21 +1,19 @@
 require 'rails_helper'
 
 describe EmailAddress do
-  let(:email_address) {EmailAddress.new(email: 'sample@example.com', contact_id: 1, contact_type: 'Person')}
+  let(:email_address) {EmailAddress.new(address: 'sample@example.com', person_id: 1)}
 
   it 'is valid' do
     expect(email_address).to be_valid
   end
 
   it 'is invalid if empty' do
-    pending
-    email_address.email = nil
+    email_address.address = nil
     expect(email_address).to_not be_valid
   end
 
   it 'is invalid without person id' do
-    pending
-    email_address.contact_id = nil
+    email_address.person_id = nil
     expect(email_address).to_not be_valid
   end
 end

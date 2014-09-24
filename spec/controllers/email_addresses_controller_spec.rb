@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-  describe EmailAddressesController, :type => :controller do
+  describe EmailAddressesController do
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -44,6 +44,7 @@ require 'rails_helper'
 
   describe "POST create" do
     describe "with valid params" do
+
       it "creates a new EmailAddress" do
         expect {
           post :create, {:email_address => valid_attributes}, valid_session
@@ -77,9 +78,6 @@ require 'rails_helper'
 
   describe "PUT update" do
     describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
 
       it "updates the requested email_address" do
         email_address = EmailAddress.create! valid_attributes
@@ -117,6 +115,7 @@ require 'rails_helper'
   end
 
   describe "DELETE destroy" do
+    
     it "destroys the requested email_address" do
       email_address = EmailAddress.create! valid_attributes
       expect {

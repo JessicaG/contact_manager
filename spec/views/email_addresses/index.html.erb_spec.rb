@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "email_addresses/index", :type => :view do
+describe "email_addresses/index", :type => :view do
   before(:each) do
     assign(:email_addresses, [
       EmailAddress.create!(
