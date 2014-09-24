@@ -42,4 +42,20 @@ describe 'the person view', type: :feature do
     expect(page).to_not have_content(old_number)
   end
 
+  it 'has links to delete phone numbers' do
+    person.phone_numbers.each do |phone|
+      expect(page).to have_link('delete', href: phone_number_path(phone))
+    end
+  end
+
+  it 'deletes a phone number' do
+    bad_number = person.phone_numbers.first
+    good_number  = person.phone_numbers.last
+
+    first(:link, 'delete').click
+    expect(current_path).to eq(person_path(person))
+    expect(page).to have_content(good_number.number)
+    expect(page).to_not have_content(bad_number.number)
+  end
+
 end
